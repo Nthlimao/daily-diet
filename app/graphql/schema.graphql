@@ -1,0 +1,36 @@
+type User {
+    id: ID!,
+    name: String!,
+    cpf: String!,
+    email: String!,
+    dateOfBirth: String!,
+    facebookID: String,
+    status: Boolean!,
+    photo: String,
+    weights: [Weight!]!,
+    heights: [Height!]!,
+}
+
+type Weight{
+    id: ID!,
+    value: Float!,
+}
+
+type Height {
+    id: ID!,
+    value: Float!,
+}
+
+type Authentication {
+    user: User!,
+    token: String!,
+}
+
+type Query {
+    users: [User!]!
+}
+
+type Mutation {
+    register(name: String!, cpf: String!, email: String!, dateOfBirth: String!, password: String!, confirmPassword:String!, weight: Float, height: Float): Authentication
+    login(email: String!, password: String!): Authentication
+}

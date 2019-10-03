@@ -1,0 +1,33 @@
+{
+  "name": "daily-diet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon start/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NthlLima/daily-diet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NthlLima/daily-diet/issues"
+  },
+  "homepage": "https://github.com/NthlLima/daily-diet#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.1.0",
+    "graphql-middleware": "^4.0.1",
+    "graphql-tools": "^4.0.5",
+    "graphql-yoga": "^1.18.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}
