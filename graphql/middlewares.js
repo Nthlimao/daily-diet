@@ -5,4 +5,7 @@ module.exports = {
         users: authMiddleware,
         meals: authMiddleware,
     },
+    Mutation: {
+        storeMenu: authMiddleware,
+    },
 }

@@ -21,7 +21,7 @@ const autheticate = async (resolve, parent, args, context, info) => {
 
         if (err) throw new Error("Token invalid");
     
-        context.userID = decoded.id;
+        context.userId = decoded.id;
     });
 
     return resolve(parent, args, context, info);

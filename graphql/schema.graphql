@@ -8,36 +8,54 @@ type User {
     status: Boolean!,
     photo: String,
     weights: [Weight!]!,
-    heights: [Height!]!,
+    heights: [Height!]!
 }
 
 type Meal {
     id: ID!,
     name: String!,
-    identifier: String!,
+    identifier: String!
 }
 
 type Weight {
     id: ID!,
-    value: Float!,
+    value: Float!
 }
 
 type Height {
     id: ID!,
-    value: Float!,
+    value: Float!
+}
+
+type Menu {
+    id: ID!,
+    date: String!,
+    meal: Meal!,
+    itens: [Item!]!
+}
+
+type Item {
+    id: ID!,
+    food: String!,
+    quantity: Float!,
+    measure: String!,
+    calories: Float!
 }
 
 type Authentication {
     user: User!,
-    token: String!,
+    token: String!
 }
 
 type Query {
     users: [User!]!
     meals: [Meal!]!
+    menus: [Menu!]!
+    # itens: [Item!]!
 }
 
 type Mutation {
     register(name: String!, cpf: String!, email: String!, dateOfBirth: String!, password: String!, confirmPassword:String!, weight: Float, height: Float): Authentication
     login(email: String!, password: String!): Authentication
+    storeMenu(date: String!, meal: ID!, food: String!, quantity: Float!, measure: String!, calories: Float!): Menu
 }
