@@ -11,7 +11,13 @@ type User {
     heights: [Height!]!,
 }
 
-type Weight{
+type Meal {
+    id: ID!,
+    name: String!,
+    identifier: String!,
+}
+
+type Weight {
     id: ID!,
     value: Float!,
 }
@@ -28,6 +34,7 @@ type Authentication {
 
 type Query {
     users: [User!]!
+    meals: [Meal!]!
 }
 
 type Mutation {

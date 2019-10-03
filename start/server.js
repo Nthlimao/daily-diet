@@ -16,9 +16,9 @@ mongoose.connect(
 mongoose.set('useCreateIndex', true);
 
 // SERVER
-const resolvers = require('../app/graphql/resolvers');
-const typeDefs = path.resolve(__dirname, '../app/graphql/schema.graphql');
-const middlewares = require('../app/graphql/middlewares');
+const resolvers = require('../graphql/resolvers');
+const typeDefs = path.resolve(__dirname, '../graphql/schema.graphql');
+const middlewares = require('../graphql/middlewares');
 
 const server = new GraphQLServer({
     typeDefs,

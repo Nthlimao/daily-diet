@@ -1,9 +1,11 @@
-const Auth = require('../controllers/authController');
-const User = require('../controllers/userController');
+const Auth = require('../app/controllers/authController');
+const User = require('../app/controllers/userController');
+const Meal = require('../app/controllers/mealController');
 
 module.exports = {
     Query: {
         users: () => User.index(),
+        meals: () => Meal.index(),
     }, 
     Mutation: {
         register: (_, { name, cpf, email, dateOfBirth, password, confirmPassword, weight, height }) => Auth.register({ name, cpf, email, dateOfBirth, password, confirmPassword, weight, height }),
