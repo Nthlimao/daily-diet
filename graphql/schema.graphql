@@ -1,3 +1,4 @@
+# MODEL USER
 type User {
     id: ID!,
     name: String!,
@@ -11,12 +12,6 @@ type User {
     heights: [Height!]!
 }
 
-type Meal {
-    id: ID!,
-    name: String!,
-    identifier: String!
-}
-
 type Weight {
     id: ID!,
     value: Float!
@@ -27,10 +22,21 @@ type Height {
     value: Float!
 }
 
-type Menu {
+# MEALS DAILY MODEL
+
+type Daily {
     id: ID!,
     date: String!,
-    meal: Meal!,
+    breakfast: Meal,
+    morning_snack: Meal,
+    lunch: Meal,
+    afternoon_snack: Meal,
+    dinner: Meal,
+    supper: Meal
+}
+
+type Meal {
+    title: String!,
     itens: [Item!]!
 }
 
@@ -49,13 +55,11 @@ type Authentication {
 
 type Query {
     users: [User!]!
-    meals: [Meal!]!
-    menus: [Menu!]!
-    # itens: [Item!]!
+    daily(id: ID!): Daily
 }
 
 type Mutation {
     register(name: String!, cpf: String!, email: String!, dateOfBirth: String!, password: String!, confirmPassword:String!, weight: Float, height: Float): Authentication
     login(email: String!, password: String!): Authentication
-    storeMenu(date: String!, meal: ID!, food: String!, quantity: Float!, measure: String!, calories: Float!): Menu
+    storeDaily(date: String!): Daily
 }
