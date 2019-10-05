@@ -36,7 +36,39 @@ const BreakfastSchema = mongoose.Schema({
 const MorningSnackSchema = mongoose.Schema({
     title: {
         type: String,
-        default: 'Café da Manhã'
+        default: 'Lanche da Manhã'
+    },
+    itens: [ItemSchema]
+});
+
+const LunchSchema = mongoose.Schema({
+    title: {
+        type: String,
+        default: 'Almoço'
+    },
+    itens: [ItemSchema]
+});
+
+const AfternoonSnackSchema = mongoose.Schema({
+    title: {
+        type: String,
+        default: 'Lanche da Tarde'
+    },
+    itens: [ItemSchema]
+});
+
+const DinnerSchema = mongoose.Schema({
+    title: {
+        type: String,
+        default: 'Jantar'
+    },
+    itens: [ItemSchema]
+});
+
+const SupperSchema = mongoose.Schema({
+    title: {
+        type: String,
+        default: 'Ceia'
     },
     itens: [ItemSchema]
 });
@@ -44,6 +76,10 @@ const MorningSnackSchema = mongoose.Schema({
 
 const Breakfast = mongoose.model('Breakfast', BreakfastSchema);
 const MorningSnack = mongoose.model('MorningSnack', MorningSnackSchema);
+const Lunch = mongoose.model('Lunch', LunchSchema);
+const AfternoonSnack = mongoose.model('AfternoonSnack', AfternoonSnackSchema);
+const Dinner = mongoose.model('Dinner', DinnerSchema);
+const Supper = mongoose.model('Supper', SupperSchema);
 
 const DailySchema = mongoose.Schema({
     date: {
@@ -55,41 +91,11 @@ const DailySchema = mongoose.Schema({
         ref: 'User'
     },
     breakfast: BreakfastSchema,
-    morning_snack: new mongoose.Schema({
-        title: {
-            type: String,
-            default: 'Lanche da Manhã'
-        },
-        itens: [ItemSchema]
-    }),
-    lunch: new mongoose.Schema({
-        title: {
-            type: String,
-            default: 'Almoço'
-        },
-        itens: [ItemSchema]
-    }),
-    afternoon_snack: new mongoose.Schema({
-        title: {
-            type: String,
-            default: 'Lanche da Tarde'
-        },
-        itens: [ItemSchema]
-    }),
-    dinner: new mongoose.Schema({
-        title: {
-            type: String,
-            default: 'Jantar'
-        },
-        itens: [ItemSchema]
-    }),
-    supper: new mongoose.Schema({
-        title: {
-            type: String,
-            default: 'Ceia'
-        },
-        itens: [ItemSchema]
-    }),
+    morning_snack: MorningSnackSchema,
+    lunch: LunchSchema,
+    afternoon_snack: AfternoonSnackSchema,
+    dinner: DinnerSchema,
+    supper: SupperSchema,
     created_at: {
         type: Date,
         default: Date.now,
