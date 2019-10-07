@@ -6,10 +6,14 @@ module.exports = {
         daily: authMiddleware,
         searchDaily: authMiddleware,
         destroyMeal: authMiddleware,
+        showProfile: authMiddleware,
     },
     Mutation: {
         storeDaily: authMiddleware,
         storeMeal: authMiddleware,
         updateMeal: authMiddleware,
+        updateProfile: authMiddleware,
+        updateWeight: authMiddleware,
+        updateHeight: authMiddleware,
     },
 }

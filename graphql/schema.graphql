@@ -59,6 +59,7 @@ type Query {
     daily(id: ID!): Daily
     searchDaily(date: String!): Daily
     destroyMeal(meal: String!, item: ID!, dailyId: ID!): Daily
+    showProfile: User
 }
 
 type Mutation {
@@ -66,5 +67,9 @@ type Mutation {
     login(email: String!, password: String!): Authentication
     storeDaily(date: String!): Daily
     storeMeal(meal: String!, food: String!, quantity: Float!, measure: String!, calories: Float!, dailyId: ID!): Daily
-    updateMeal(meal: String!, item: ID!, food: String, quantity: Float, measure: String, calories: Float, dailyId: ID!): Daily    
+    updateMeal(meal: String!, item: ID!, food: String, quantity: Float, measure: String, calories: Float, dailyId: ID!): Daily   
+    updateProfile(name: String, cpf: String, email: String, dateOfBirth: String): User
+    updatePassword(password: String!, confirmPassword: String!): User
+    updateWeight(weight: Float!): User
+    updateHeight(height: Float!): User
 }
