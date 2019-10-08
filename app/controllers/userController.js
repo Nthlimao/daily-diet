@@ -6,4 +6,7 @@ module.exports = {
         
         return users;
     },
+    async show({ id }){
+        return await User.findById(id);
+    }
 }

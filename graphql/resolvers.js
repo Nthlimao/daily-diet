@@ -7,6 +7,7 @@ const Meal = require('../app/controllers/mealController');
 module.exports = {
     Query: {
         users: (_) => User.index(),
+        user: (_, { id }) => User.show({ id }),
         dailies: (_, { }, ctx ) => Daily.index({ user_id: ctx.userId }),
         daily: (_, { id }) => Daily.show({ id }),
         searchDaily: (_, { date }) => Daily.search({ date }),

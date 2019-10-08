@@ -57,6 +57,7 @@ type Authentication {
 # ROUTES
 type Query {
     users: [User!]!
+    user(id: ID!): User
     dailies: [Daily!]!
     daily(id: ID!): Daily
     searchDaily(date: String!): Daily
