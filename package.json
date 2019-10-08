@@ -21,6 +21,7 @@
   "homepage": "https://github.com/NthlLima/daily-diet#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "graphql-middleware": "^4.0.1",
     "graphql-tools": "^4.0.5",

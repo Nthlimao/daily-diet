@@ -3,6 +3,7 @@ require('dotenv').config();
 const { GraphQLServer } = require('graphql-yoga');
 const path = require('path');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 // DATABASE
 mongoose.connect(
@@ -27,4 +28,5 @@ const server = new GraphQLServer({
     middlewares: [middlewares],
 });
 
+server.express.use(cors());
 server.start();
