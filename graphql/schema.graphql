@@ -9,7 +9,8 @@ type User {
     status: Boolean!,
     photo: String,
     weights: [Weight!]!,
-    heights: [Height!]!
+    heights: [Height!]!,
+    password: String!
 }
 
 type Weight {
@@ -55,6 +56,7 @@ type Authentication {
 
 # ROUTES
 type Query {
+    users: [User!]!
     dailies: [Daily!]!
     daily(id: ID!): Daily
     searchDaily(date: String!): Daily

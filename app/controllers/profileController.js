@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const bcrypt = require('bcryptjs');
 
 const ProfileController = {
     async show({ id }){
@@ -12,7 +13,9 @@ const ProfileController = {
         if(password !== confirmPassword)
             throw new Error('invalida passwords');
 
-        return await User.findByIdAndUpdate(id, { password }, { new: true });
+        const newPassword = await bcrypt.hash(password, 10);
+
+        return await User.findByIdAndUpdate(id, { password: newPassword }, { new: true });
     },
     async updateWeight({ id, weight }){
         const user = await User.findById(id);

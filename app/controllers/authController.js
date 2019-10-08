@@ -45,7 +45,9 @@ module.exports = {
         const user = await User.findOne({ email });
 
         if(!user) throw new Error('User not found');
-
+        
+        console.log(password);
+        console.log(user.password);
         if(!await bcrypt.compare(password, user.password)) throw new Error('Invalid password');
 
         return {

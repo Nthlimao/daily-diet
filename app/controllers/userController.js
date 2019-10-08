@@ -1,5 +1,4 @@
-const Controller = require('../models/user');
-const User = Controller.User;
+const User = require('../models/user');
 
 module.exports = {
     async index() {

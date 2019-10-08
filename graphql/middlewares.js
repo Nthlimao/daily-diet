@@ -13,6 +13,7 @@ module.exports = {
         storeMeal: authMiddleware,
         updateMeal: authMiddleware,
         updateProfile: authMiddleware,
+        updatePassword: authMiddleware,
         updateWeight: authMiddleware,
         updateHeight: authMiddleware,
     },
