@@ -1,3 +1,5 @@
+scalar Date
+
 # MODEL USER
 type User {
     id: ID!,
@@ -26,7 +28,7 @@ type Height {
 # MEALS DAILY MODEL
 type Daily {
     id: ID!,
-    date: String!,
+    date: Date!,
     breakfast: Meal,
     morning_snack: Meal,
     lunch: Meal,
@@ -60,7 +62,7 @@ type Query {
     user(id: ID!): User
     dailies: [Daily!]!
     daily(id: ID!): Daily
-    searchDaily(date: String!): Daily
+    searchDaily(date: Date!): Daily
     destroyMeal(meal: String!, item: ID!, dailyId: ID!): Daily
     showProfile: User
 }
@@ -68,7 +70,7 @@ type Query {
 type Mutation {
     register(name: String!, cpf: String!, email: String!, dateOfBirth: String!, password: String!, confirmPassword:String!, weight: Float, height: Float): Authentication
     login(email: String!, password: String!): Authentication
-    storeDaily(date: String!): Daily
+    storeDaily(date: Date!): Daily
     storeMeal(meal: String!, food: String!, quantity: Float!, measure: String!, calories: Float!, dailyId: ID!): Daily
     updateMeal(meal: String!, item: ID!, food: String, quantity: Float, measure: String, calories: Float, dailyId: ID!): Daily   
     updateProfile(name: String, cpf: String, email: String, dateOfBirth: String): User

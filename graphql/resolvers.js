@@ -4,6 +4,8 @@ const Profile = require('../app/controllers/profileController');
 const Daily = require('../app/controllers/dailyController');
 const Meal = require('../app/controllers/mealController');
 
+const Date =  require('./date.scalar');
+
 module.exports = {
     Query: {
         users: (_) => User.index(),
@@ -25,4 +27,5 @@ module.exports = {
         updateWeight: (_, { weight }, ctx) => Profile.updateWeight({ id: ctx.userId, weight }),
         updateHeight: (_, { height }, ctx) => Profile.updateHeight({ id: ctx.userId, height }),
     },
+    Date,
 }

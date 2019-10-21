@@ -16,13 +16,12 @@ module.exports = {
 
         return daily;
     },
-    async search({ date }) {
-        let days = moment(date);
-        let day  = days.toDate();
-        let next = days.add(1, 'day').toDate();
+    async search({ date }) {            
+        let day  = date.subtract(3, 'hours').toDate();
+        let next = date.add(1, 'day').subtract(1, 'minutes').toDate();
 
         const daily = await Daily.findOne({
-            created_at: {
+            date: {
                 "$gte": day,
                 "$lt": next
             }
