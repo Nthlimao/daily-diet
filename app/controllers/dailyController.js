@@ -16,9 +16,10 @@ module.exports = {
 
         return daily;
     },
-    async search({ date }) {            
-        let day  = date.subtract(3, 'hours').toDate();
-        let next = date.add(1, 'day').subtract(1, 'minutes').toDate();
+    async search({ date }) {
+        let days = moment(date);
+        let day  = days.subtract(3, 'hours').toDate();
+        let next = days.add(1, 'day').subtract(1, 'minutes').toDate();
 
         const daily = await Daily.findOne({
             date: {
